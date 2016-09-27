@@ -122,9 +122,9 @@ endif ()
 if (("${CMAKE_CXX_COMPILER_ID}" STREQUAL "Intel") OR (CXX_COMPILER_NAME STREQUAL "icpc") OR (CXX_COMPILER_NAME STREQUAL "icc"))
     set(CMAKE_CXX_FLAGS_RELEASE "-O3 -xHOST -DNDEBUG -ipo -ip" CACHE STRING "Default flags for optimized release builds" FORCE)
 elseif ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang")
-    set(CMAKE_CXX_FLAGS_RELEASE "-O3 -DNDEBUG -march=native" CACHE STRING "Default flags for optimized release builds" FORCE)
+    set(CMAKE_CXX_FLAGS_RELEASE "-O3 -DNDEBUG" CACHE STRING "Default flags for optimized release builds" FORCE)
 elseif (CMAKE_COMPILER_IS_GNUCXX OR CXX_COMPILER_NAME STREQUAL "g++" OR CXX_COMPILER_NAME STREQUAL "c++" OR CXX_COMPILER_NAME STREQUAL "g++.exe")
-    set(CMAKE_CXX_FLAGS_RELEASE "-O3 -DNDEBUG -march=native" CACHE STRING "Default flags for optimized release builds" FORCE)
+    set(CMAKE_CXX_FLAGS_RELEASE "-O3 -DNDEBUG" CACHE STRING "Default flags for optimized release builds" FORCE)
 elseif (CXX_COMPILER_NAME STREQUAL "cl")
 endif ()
 
@@ -281,8 +281,8 @@ endif()
 # ------------------------------------------------------------------------------------------------------------------------
 
 # Set install directory to current directory
-#set (CMAKE_INSTALL_PREFIX "$ENV{HOME}/opt/cadet" CACHE
-#  STRING "Install path prefix, prepended onto install directories." FORCE)
+set (CMAKE_INSTALL_PREFIX "$ENV{HOME}/opt/cadetLabs" CACHE
+    STRING "Install path prefix, prepended onto install directories." FORCE)
 
 # ------------------------------------------------------------------------------------------------------------------------
 
