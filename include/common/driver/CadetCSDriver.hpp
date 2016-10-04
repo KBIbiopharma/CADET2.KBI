@@ -931,6 +931,27 @@ void CadetCS<reader_t, writer_t>::setParameters()
             }
             (*sim)->setExternalProfile(&_externalProfile);
             break;
+        case EXTERNAL_STERIC_MASS_ACTION_PH:
+            (*sim)->setParameterValue(_reader.template scalar<double>(e2s(EXTSMAPH_LAMBDA)),     EXTSMAPH_LAMBDA);
+            (*sim)->setParameterValue(_reader.template scalar<double>(e2s(EXTSMAPH_LAMBDA_T)),   EXTSMAPH_LAMBDA_T);
+            (*sim)->setParameterValue(_reader.template scalar<double>(e2s(EXTSMAPH_LAMBDA_TT)),  EXTSMAPH_LAMBDA_TT);
+            for (std::size_t comp = 0; comp < _ncomp; ++comp) // vectorial parameters
+            {
+                (*sim)->setParameterValue(_reader.template scalar<double>(e2s(EXTSMAPH_KA),       comp), EXTSMAPH_KA, comp);
+                (*sim)->setParameterValue(_reader.template scalar<double>(e2s(EXTSMAPH_KA_T),     comp), EXTSMAPH_KA_T, comp);
+                (*sim)->setParameterValue(_reader.template scalar<double>(e2s(EXTSMAPH_KA_TT),    comp), EXTSMAPH_KA_TT, comp);
+                (*sim)->setParameterValue(_reader.template scalar<double>(e2s(EXTSMAPH_KD),       comp), EXTSMAPH_KD, comp);
+                (*sim)->setParameterValue(_reader.template scalar<double>(e2s(EXTSMAPH_KD_T),     comp), EXTSMAPH_KD_T, comp);
+                (*sim)->setParameterValue(_reader.template scalar<double>(e2s(EXTSMAPH_KD_TT),    comp), EXTSMAPH_KD_TT, comp);
+                (*sim)->setParameterValue(_reader.template scalar<double>(e2s(EXTSMAPH_NU),       comp), EXTSMAPH_NU, comp);
+                (*sim)->setParameterValue(_reader.template scalar<double>(e2s(EXTSMAPH_NU_T),     comp), EXTSMAPH_NU_T, comp);
+                (*sim)->setParameterValue(_reader.template scalar<double>(e2s(EXTSMAPH_NU_TT),    comp), EXTSMAPH_NU_TT, comp);
+                (*sim)->setParameterValue(_reader.template scalar<double>(e2s(EXTSMAPH_SIGMA),    comp), EXTSMAPH_SIGMA, comp);
+                (*sim)->setParameterValue(_reader.template scalar<double>(e2s(EXTSMAPH_SIGMA_T),  comp), EXTSMAPH_SIGMA_T, comp);
+                (*sim)->setParameterValue(_reader.template scalar<double>(e2s(EXTSMAPH_SIGMA_TT), comp), EXTSMAPH_SIGMA_TT, comp);
+            }
+            (*sim)->setExternalProfile(&_externalProfile);
+            break;
         case EXTERNAL_MOBILE_PHASE_MODULATORS:
             for (std::size_t comp = 0; comp < _ncomp; ++comp) // vectorial parameters
             {
