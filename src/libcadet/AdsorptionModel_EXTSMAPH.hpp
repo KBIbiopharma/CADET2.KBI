@@ -162,8 +162,10 @@ public:
             const double c0_pow_nu     = pow(c0, finalNu);
             const double q0_bar_pow_nu = pow(q0_bar, finalNu);
 
-            const double finalKa = ka + temp * (ka_T + temp * (ka_TT));
-            const double finalKd = kd + temp * (kd_T + temp * (kd_TT));
+            //const double finalKa = ka + temp * (ka_T + temp * (ka_TT));
+            //const double finalKd = kd + temp * (kd_T + temp * (kd_TT));
+            const double finalKa = pow(double(10.0), ka + temp * (ka_T + temp * (ka_TT)) );
+            const double finalKd = pow(double(10.0), kd + temp * (kd_T + temp * (kd_TT)) );
 
             // Jacobian
             jac[-_cc.ncomp() - comp] = finalKd * (*q) * finalNu * c0_pow_nu / c0;                      // dres_i / dc0
