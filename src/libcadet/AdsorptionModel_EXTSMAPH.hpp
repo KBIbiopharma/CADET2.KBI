@@ -32,9 +32,7 @@ public:
     // Constructor
     AdsorptionModel_EXTSMAPH(const SimulatorPImpl& sim) :
         AdsorptionModel(sim, EXTERNAL_STERIC_MASS_ACTION_PH), 
-        _lambda(EXTSMAPH_LAMBDA,     e2s(EXTSMAPH_LAMBDA),     -1, -1, 0.0, 0.0, -std::numeric_limits<double>::infinity(), true, std::numeric_limits<double>::infinity(), true),
-        _lambdaT(EXTSMAPH_LAMBDA_T,     e2s(EXTSMAPH_LAMBDA_T),     -1, -1, 0.0, 0.0, -std::numeric_limits<double>::infinity(), true, std::numeric_limits<double>::infinity(), true),
-        _lambdaTT(EXTSMAPH_LAMBDA_TT,     e2s(EXTSMAPH_LAMBDA_TT),     -1, -1, 0.0, 0.0, -std::numeric_limits<double>::infinity(), true, std::numeric_limits<double>::infinity(), true)
+        _lambda(EXTSMAPH_LAMBDA,     e2s(EXTSMAPH_LAMBDA),     -1, -1, 0.0, 0.0, -std::numeric_limits<double>::infinity(), true, std::numeric_limits<double>::infinity(), true)
     {
         log::emit<Trace1>() << CURRENT_FUNCTION << Color::cyan << ": Called!" << Color::reset << log::endl;
 
@@ -60,8 +58,6 @@ public:
         _sigmaTT.reserve(_cc.ncomp());
 
         addParam(_lambda);
-        addParam(_lambdaT);
-        addParam(_lambdaTT);
 
         for (int comp = 0; comp < _cc.ncomp(); ++comp)
         {
@@ -199,9 +195,7 @@ private:
         const ParamType              kd        = _kD[comp].getValue<ParamType>();
         const ParamType              kd_T      = _kDT[comp].getValue<ParamType>();
         const ParamType              kd_TT     = _kDTT[comp].getValue<ParamType>();
-        const ParamType              lambda        = _lambda.getValue<ParamType>();
-        const ParamType              lambda_T      = _lambdaT.getValue<ParamType>();
-        const ParamType              lambda_TT     = _lambdaTT.getValue<ParamType>();
+        const ParamType              lambda    = _lambda.getValue<ParamType>();
 
         // Temperature
         double temp;
@@ -213,7 +207,7 @@ private:
         if (comp == 0)
         {
             // Salt component
-            *res = *q - ( lambda + temp * (lambda_T + temp * (lambda_TT)) );
+            *res = *q - ( lambda );
 
             for (int j = 1; j < _cc.ncomp(); ++j)
             {
@@ -240,8 +234,10 @@ private:
             ResidType c0_pow_nu = pow(c0, finalNu);
             ResidType q0_bar_pow_nu = pow(q0_bar, finalNu);
 
-            ResidType finalKa = ka + temp * (ka_T + temp * (ka_TT));
-            ResidType finalKd = kd + temp * (kd_T + temp * (kd_TT));
+            //ResidType finalKa = ka + temp * (ka_T + temp * (ka_TT));
+            //ResidType finalKd = kd + temp * (kd_T + temp * (kd_TT));
+            ResidType finalKa = pow(ResidType(10.0), ka + temp * (ka_T + temp * (ka_TT)) );
+            ResidType finalKd = pow(ResidType(10.0), kd + temp * (kd_T + temp * (kd_TT)) );
 
             // Residual
             *res = finalKd * (*q) * c0_pow_nu - finalKa * (*c) * q0_bar_pow_nu;
@@ -267,10 +263,8 @@ private:
     std::vector<Parameter<active>>  _sigmaTT;
 
     Parameter<active> _lambda;
-    Parameter<active> _lambdaT;
-    Parameter<active> _lambdaTT;
 };
 
 } // namespace cadet
 
-#endif // ADSORPTIONMODEL_THM_SMA_HPP_
+#endif // ADSORPTIONMODEL_EXT_SMAPH_HPP_

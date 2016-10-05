@@ -159,8 +159,6 @@ enum ParameterName {
     EXTSMAPH_SIGMA_T,
     EXTSMAPH_SIGMA_TT,
     EXTSMAPH_LAMBDA,
-    EXTSMAPH_LAMBDA_T,
-    EXTSMAPH_LAMBDA_TT,
 
     EXTMPM_KA,
     EXTMPM_KA_T,
@@ -468,8 +466,6 @@ inline const char* e2s(ParameterName param)
     case EXTSMAPH_SIGMA_T:              return "EXTSMAPH_SIGMA_T";
     case EXTSMAPH_SIGMA_TT:             return "EXTSMAPH_SIGMA_TT";
     case EXTSMAPH_LAMBDA:               return "EXTSMAPH_LAMBDA";
-    case EXTSMAPH_LAMBDA_T:             return "EXTSMAPH_LAMBDA_T";
-    case EXTSMAPH_LAMBDA_TT:            return "EXTSMAPH_LAMBDA_TT";
 
     case EXTMPM_KA:                   return "EXTMPM_KA";
     case EXTMPM_KA_T:                 return "EXTMPM_KA_T";

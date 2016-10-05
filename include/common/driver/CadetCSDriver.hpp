@@ -933,8 +933,6 @@ void CadetCS<reader_t, writer_t>::setParameters()
             break;
         case EXTERNAL_STERIC_MASS_ACTION_PH:
             (*sim)->setParameterValue(_reader.template scalar<double>(e2s(EXTSMAPH_LAMBDA)),     EXTSMAPH_LAMBDA);
-            (*sim)->setParameterValue(_reader.template scalar<double>(e2s(EXTSMAPH_LAMBDA_T)),   EXTSMAPH_LAMBDA_T);
-            (*sim)->setParameterValue(_reader.template scalar<double>(e2s(EXTSMAPH_LAMBDA_TT)),  EXTSMAPH_LAMBDA_TT);
             for (std::size_t comp = 0; comp < _ncomp; ++comp) // vectorial parameters
             {
                 (*sim)->setParameterValue(_reader.template scalar<double>(e2s(EXTSMAPH_KA),       comp), EXTSMAPH_KA, comp);
