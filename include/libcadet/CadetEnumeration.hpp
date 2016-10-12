@@ -147,17 +147,17 @@ enum ParameterName {
     EXTSMA_LAMBDA_TTT,
 
     EXTSMAPH_KA,
-    EXTSMAPH_KA_T,
-    EXTSMAPH_KA_TT,
+    EXTSMAPH_KA_E,
+    EXTSMAPH_KA_EE,
     EXTSMAPH_KD,
-    EXTSMAPH_KD_T,
-    EXTSMAPH_KD_TT,
+    EXTSMAPH_KD_E,
+    EXTSMAPH_KD_EE,
     EXTSMAPH_NU,
-    EXTSMAPH_NU_T,
-    EXTSMAPH_NU_TT,
+    EXTSMAPH_NU_P,
+    EXTSMAPH_NU_PP,
     EXTSMAPH_SIGMA,
-    EXTSMAPH_SIGMA_T,
-    EXTSMAPH_SIGMA_TT,
+    EXTSMAPH_SIGMA_P,
+    EXTSMAPH_SIGMA_PP,
     EXTSMAPH_LAMBDA,
 
     EXTMPM_KA,
@@ -454,17 +454,17 @@ inline const char* e2s(ParameterName param)
     case EXTSMA_LAMBDA_TTT:           return "EXTSMA_LAMBDA_TTT";
 
     case EXTSMAPH_KA:                   return "EXTSMAPH_KA";
-    case EXTSMAPH_KA_T:                 return "EXTSMAPH_KA_T";
-    case EXTSMAPH_KA_TT:                return "EXTSMAPH_KA_TT";
+    case EXTSMAPH_KA_E:                 return "EXTSMAPH_KA_E";
+    case EXTSMAPH_KA_EE:                return "EXTSMAPH_KA_EE";
     case EXTSMAPH_KD:                   return "EXTSMAPH_KD";
-    case EXTSMAPH_KD_T:                 return "EXTSMAPH_KD_T";
-    case EXTSMAPH_KD_TT:                return "EXTSMAPH_KD_TT";
+    case EXTSMAPH_KD_E:                 return "EXTSMAPH_KD_E";
+    case EXTSMAPH_KD_EE:                return "EXTSMAPH_KD_EE";
     case EXTSMAPH_NU:                   return "EXTSMAPH_NU";
-    case EXTSMAPH_NU_T:                 return "EXTSMAPH_NU_T";
-    case EXTSMAPH_NU_TT:                return "EXTSMAPH_NU_TT";
+    case EXTSMAPH_NU_P:                 return "EXTSMAPH_NU_P";
+    case EXTSMAPH_NU_PP:                return "EXTSMAPH_NU_PP";
     case EXTSMAPH_SIGMA:                return "EXTSMAPH_SIGMA";
-    case EXTSMAPH_SIGMA_T:              return "EXTSMAPH_SIGMA_T";
-    case EXTSMAPH_SIGMA_TT:             return "EXTSMAPH_SIGMA_TT";
+    case EXTSMAPH_SIGMA_P:              return "EXTSMAPH_SIGMA_P";
+    case EXTSMAPH_SIGMA_PP:             return "EXTSMAPH_SIGMA_PP";
     case EXTSMAPH_LAMBDA:               return "EXTSMAPH_LAMBDA";
 
     case EXTMPM_KA:                   return "EXTMPM_KA";

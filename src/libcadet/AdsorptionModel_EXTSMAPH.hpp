@@ -42,20 +42,20 @@ public:
         log::emit<Debug1>() << CURRENT_FUNCTION << ": Configured" << log::endl;
 
         _kA.reserve(_cc.ncomp());
-        _kAT.reserve(_cc.ncomp());
-        _kATT.reserve(_cc.ncomp());
+        _kAE.reserve(_cc.ncomp());
+        _kAEE.reserve(_cc.ncomp());
 
         _kD.reserve(_cc.ncomp());
-        _kDT.reserve(_cc.ncomp());
-        _kDTT.reserve(_cc.ncomp());
+        _kDE.reserve(_cc.ncomp());
+        _kDEE.reserve(_cc.ncomp());
 
         _nu.reserve(_cc.ncomp());
-        _nuT.reserve(_cc.ncomp());
-        _nuTT.reserve(_cc.ncomp());
+        _nuP.reserve(_cc.ncomp());
+        _nuPP.reserve(_cc.ncomp());
 
         _sigma.reserve(_cc.ncomp());
-        _sigmaT.reserve(_cc.ncomp());
-        _sigmaTT.reserve(_cc.ncomp());
+        _sigmaP.reserve(_cc.ncomp());
+        _sigmaPP.reserve(_cc.ncomp());
 
         addParam(_lambda);
 
@@ -63,31 +63,31 @@ public:
         {
             _kA.push_back(Parameter<active> (EXTSMAPH_KA,         e2s(EXTSMAPH_KA),         comp, -1, 0.0, 0.0, -inf, true, inf, true));
             addParam(_kA[comp]);
-            _kAT.push_back(Parameter<active> (EXTSMAPH_KA_T,       e2s(EXTSMAPH_KA_T),       comp, -1, 0.0, 0.0, -inf, true, inf, true));
-            addParam(_kAT[comp]);
-            _kATT.push_back(Parameter<active> (EXTSMAPH_KA_TT,      e2s(EXTSMAPH_KA_TT),      comp, -1, 0.0, 0.0, -inf, true, inf, true));
-            addParam(_kATT[comp]);
+            _kAE.push_back(Parameter<active> (EXTSMAPH_KA_E,       e2s(EXTSMAPH_KA_E),       comp, -1, 0.0, 0.0, -inf, true, inf, true));
+            addParam(_kAE[comp]);
+            _kAEE.push_back(Parameter<active> (EXTSMAPH_KA_EE,      e2s(EXTSMAPH_KA_EE),      comp, -1, 0.0, 0.0, -inf, true, inf, true));
+            addParam(_kAEE[comp]);
 
             _kD.push_back(Parameter<active> (EXTSMAPH_KD,         e2s(EXTSMAPH_KD),         comp, -1, 0.0, 0.0, -inf, true, inf, true));
             addParam(_kD[comp]);
-            _kDT.push_back(Parameter<active> (EXTSMAPH_KD_T,       e2s(EXTSMAPH_KD_T),       comp, -1, 0.0, 0.0, -inf, true, inf, true));
-            addParam(_kDT[comp]);
-            _kDTT.push_back(Parameter<active> (EXTSMAPH_KD_TT,      e2s(EXTSMAPH_KD_TT),      comp, -1, 0.0, 0.0, -inf, true, inf, true));
-            addParam(_kDTT[comp]);
+            _kDE.push_back(Parameter<active> (EXTSMAPH_KD_E,       e2s(EXTSMAPH_KD_E),       comp, -1, 0.0, 0.0, -inf, true, inf, true));
+            addParam(_kDE[comp]);
+            _kDEE.push_back(Parameter<active> (EXTSMAPH_KD_EE,      e2s(EXTSMAPH_KD_EE),      comp, -1, 0.0, 0.0, -inf, true, inf, true));
+            addParam(_kDEE[comp]);
 
             _nu.push_back(Parameter<active> (EXTSMAPH_NU,         e2s(EXTSMAPH_NU),         comp, -1, 0.0, 0.0, -inf, true, inf, true));
             addParam(_nu[comp]);
-            _nuT.push_back(Parameter<active> (EXTSMAPH_NU_T,       e2s(EXTSMAPH_NU_T),       comp, -1, 0.0, 0.0, -inf, true, inf, true));
-            addParam(_nuT[comp]);
-            _nuTT.push_back(Parameter<active> (EXTSMAPH_NU_TT,      e2s(EXTSMAPH_NU_TT),      comp, -1, 0.0, 0.0, -inf, true, inf, true));
-            addParam(_nuTT[comp]);
+            _nuP.push_back(Parameter<active> (EXTSMAPH_NU_P,       e2s(EXTSMAPH_NU_P),       comp, -1, 0.0, 0.0, -inf, true, inf, true));
+            addParam(_nuP[comp]);
+            _nuPP.push_back(Parameter<active> (EXTSMAPH_NU_PP,      e2s(EXTSMAPH_NU_PP),      comp, -1, 0.0, 0.0, -inf, true, inf, true));
+            addParam(_nuPP[comp]);
 
             _sigma.push_back(Parameter<active> (EXTSMAPH_SIGMA,      e2s(EXTSMAPH_SIGMA),      comp, -1, 0.0, 0.0, -inf, true, inf, true));
             addParam(_sigma[comp]);
-            _sigmaT.push_back(Parameter<active> (EXTSMAPH_SIGMA_T,    e2s(EXTSMAPH_SIGMA_T),    comp, -1, 0.0, 0.0, -inf, true, inf, true));
-            addParam(_sigmaT[comp]);
-            _sigmaTT.push_back(Parameter<active> (EXTSMAPH_SIGMA_TT,   e2s(EXTSMAPH_SIGMA_TT),   comp, -1, 0.0, 0.0, -inf, true, inf, true));
-            addParam(_sigmaTT[comp]);
+            _sigmaP.push_back(Parameter<active> (EXTSMAPH_SIGMA_P,    e2s(EXTSMAPH_SIGMA_P),    comp, -1, 0.0, 0.0, -inf, true, inf, true));
+            addParam(_sigmaP[comp]);
+            _sigmaPP.push_back(Parameter<active> (EXTSMAPH_SIGMA_PP,   e2s(EXTSMAPH_SIGMA_PP),   comp, -1, 0.0, 0.0, -inf, true, inf, true));
+            addParam(_sigmaPP[comp]);
         }
 
         log::emit<Trace1>() << CURRENT_FUNCTION << Color::green << ": Finished!" << Color::reset << log::endl;
@@ -123,11 +123,11 @@ public:
         log::emit<Trace2>() << CURRENT_FUNCTION << Color::cyan << ": Called!" << Color::reset << log::endl;
 
         const double              ka        = _kA[comp].getValue<double>();
-        const double              ka_T      = _kAT[comp].getValue<double>();
-        const double              ka_TT     = _kATT[comp].getValue<double>();
+        const double              ka_E      = _kAE[comp].getValue<double>();
+        const double              ka_EE     = _kAEE[comp].getValue<double>();
         const double              kd        = _kD[comp].getValue<double>();
-        const double              kd_T      = _kDT[comp].getValue<double>();
-        const double              kd_TT     = _kDTT[comp].getValue<double>();
+        const double              kd_E      = _kDE[comp].getValue<double>();
+        const double              kd_EE     = _kDEE[comp].getValue<double>();
 
         // Temperature
         double temp;
@@ -141,7 +141,7 @@ public:
             jac[0] = 1.0;
             for (int j = 1; j < _cc.ncomp(); ++j)
             {
-                jac[j] = _nu[j].getValue<double>() + temp * (_nuT[j].getValue<double>() + temp * (_nuTT[j].getValue<double>() ));
+                jac[j] = _nu[j].getValue<double>() + temp * (_nuP[j].getValue<double>() + temp * (_nuPP[j].getValue<double>() ));
             }
         }
         else  // Protein component
@@ -154,18 +154,18 @@ public:
 
             for (int j = 1; j < _cc.ncomp(); ++j)
             {
-                const double finalSigma = _sigma[j].getValue<double>() + temp * (_sigmaT[j].getValue<double>() + temp * (_sigmaTT[j].getValue<double>() ));
+                const double finalSigma = _sigma[j].getValue<double>() + temp * (_sigmaP[j].getValue<double>() + temp * (_sigmaPP[j].getValue<double>() ));
                 q0_bar -= finalSigma * q[-comp + j];
             }
 
-            const double finalNu = _nu[comp].getValue<double>() + temp * (_nuT[comp].getValue<double>() + temp * (_nuTT[comp].getValue<double>() ));
+            const double finalNu = _nu[comp].getValue<double>() + temp * (_nuP[comp].getValue<double>() + temp * (_nuPP[comp].getValue<double>() ));
             const double c0_pow_nu     = pow(c0, finalNu);
             const double q0_bar_pow_nu = pow(q0_bar, finalNu);
 
             //const double finalKa = ka + temp * (ka_T + temp * (ka_TT));
             //const double finalKd = kd + temp * (kd_T + temp * (kd_TT));
-            const double finalKa = pow(double(10.0), ka + temp * (ka_T + temp * (ka_TT)) );
-            const double finalKd = pow(double(10.0), kd + temp * (kd_T + temp * (kd_TT)) );
+            const double finalKa = pow(double(10.0), ka + temp * (ka_E + temp * (ka_EE)) );
+            const double finalKd = pow(double(10.0), kd + temp * (kd_E + temp * (kd_EE)) );
 
             // Jacobian
             jac[-_cc.ncomp() - comp] = finalKd * (*q) * finalNu * c0_pow_nu / c0;                      // dres_i / dc0
@@ -174,7 +174,7 @@ public:
 
             for (int j = 1; j < _cc.ncomp(); ++j)
             {
-                const double finalSigma = _sigma[j].getValue<double>() + temp * (_sigmaT[j].getValue<double>() + temp * (_sigmaTT[j].getValue<double>() ));
+                const double finalSigma = _sigma[j].getValue<double>() + temp * (_sigmaP[j].getValue<double>() + temp * (_sigmaPP[j].getValue<double>() ));
                 jac[-comp + j] = -finalKa * (*c) * finalNu * q0_bar_pow_nu / q0_bar * (-finalSigma);  // dres_i / dqj
             }
 
@@ -192,11 +192,11 @@ private:
         log::emit<Trace2>() << CURRENT_FUNCTION << Color::cyan << ": Called!" << Color::reset << log::endl;
 
         const ParamType              ka        = _kA[comp].getValue<ParamType>();
-        const ParamType              ka_T      = _kAT[comp].getValue<ParamType>();
-        const ParamType              ka_TT     = _kATT[comp].getValue<ParamType>();
+        const ParamType              ka_E      = _kAE[comp].getValue<ParamType>();
+        const ParamType              ka_EE     = _kAEE[comp].getValue<ParamType>();
         const ParamType              kd        = _kD[comp].getValue<ParamType>();
-        const ParamType              kd_T      = _kDT[comp].getValue<ParamType>();
-        const ParamType              kd_TT     = _kDTT[comp].getValue<ParamType>();
+        const ParamType              kd_E      = _kDE[comp].getValue<ParamType>();
+        const ParamType              kd_EE     = _kDEE[comp].getValue<ParamType>();
         const ParamType              lambda    = _lambda.getValue<ParamType>();
 
         // Temperature
@@ -213,7 +213,7 @@ private:
 
             for (int j = 1; j < _cc.ncomp(); ++j)
             {
-                ResidType finalNu = _nu[j].getValue<double>() + temp * (_nuT[j].getValue<double>() + temp * (_nuTT[j].getValue<double>() ));
+                ResidType finalNu = _nu[j].getValue<double>() + temp * (_nuP[j].getValue<double>() + temp * (_nuPP[j].getValue<double>() ));
                 *res += finalNu * q[j];
             }
         }
@@ -228,18 +228,18 @@ private:
 
             for (int j = 1; j < _cc.ncomp(); ++j)
             {
-                ResidType finalSigma = _sigma[j].getValue<double>() + temp * (_sigmaT[j].getValue<double>() + temp * (_sigmaTT[j].getValue<double>() ));
+                ResidType finalSigma = _sigma[j].getValue<double>() + temp * (_sigmaP[j].getValue<double>() + temp * (_sigmaPP[j].getValue<double>() ));
                 q0_bar -= finalSigma * q[-comp + j];
             }
 
-            ResidType finalNu = _nu[comp].getValue<double>() + temp * (_nuT[comp].getValue<double>() + temp * (_nuTT[comp].getValue<double>() ));
+            ResidType finalNu = _nu[comp].getValue<double>() + temp * (_nuP[comp].getValue<double>() + temp * (_nuPP[comp].getValue<double>() ));
             ResidType c0_pow_nu = pow(c0, finalNu);
             ResidType q0_bar_pow_nu = pow(q0_bar, finalNu);
 
             //ResidType finalKa = ka + temp * (ka_T + temp * (ka_TT));
             //ResidType finalKd = kd + temp * (kd_T + temp * (kd_TT));
-            ResidType finalKa = pow(ResidType(10.0), ka + temp * (ka_T + temp * (ka_TT)) );
-            ResidType finalKd = pow(ResidType(10.0), kd + temp * (kd_T + temp * (kd_TT)) );
+            ResidType finalKa = pow(ResidType(10.0), ka + temp * (ka_E + temp * (ka_EE)) );
+            ResidType finalKd = pow(ResidType(10.0), kd + temp * (kd_E + temp * (kd_EE)) );
 
             // Residual
             *res = finalKd * (*q) * c0_pow_nu - finalKa * (*c) * q0_bar_pow_nu;
@@ -249,20 +249,20 @@ private:
     }
 
     std::vector<Parameter<active>>  _kA;
-    std::vector<Parameter<active>>  _kAT;
-    std::vector<Parameter<active>>  _kATT;
+    std::vector<Parameter<active>>  _kAE;
+    std::vector<Parameter<active>>  _kAEE;
 
     std::vector<Parameter<active>>  _kD;
-    std::vector<Parameter<active>>  _kDT;
-    std::vector<Parameter<active>>  _kDTT;
+    std::vector<Parameter<active>>  _kDE;
+    std::vector<Parameter<active>>  _kDEE;
 
     std::vector<Parameter<active>>  _nu;
-    std::vector<Parameter<active>>  _nuT;
-    std::vector<Parameter<active>>  _nuTT;
+    std::vector<Parameter<active>>  _nuP;
+    std::vector<Parameter<active>>  _nuPP;
 
     std::vector<Parameter<active>>  _sigma;
-    std::vector<Parameter<active>>  _sigmaT;
-    std::vector<Parameter<active>>  _sigmaTT;
+    std::vector<Parameter<active>>  _sigmaP;
+    std::vector<Parameter<active>>  _sigmaPP;
 
     Parameter<active> _lambda;
 };
