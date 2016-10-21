@@ -145,7 +145,7 @@ void TimeIntegrator::setInitialConditions(const std::vector<double>& initC, cons
 
     // ========================================================================================
     // Make sure the initial condition for the salt component in bound phase
-    // is equivalent to lambda in case of SMA or SAI kinetics.
+    // is equivalent to lambda in case of SMA, SAI kinetics, or EXTSMAPH.
     // ========================================================================================
     double lambda;
     std::vector<double> initQ_wrt;
@@ -155,9 +155,12 @@ void TimeIntegrator::setInitialConditions(const std::vector<double>& initC, cons
         lambda = _psim.getAdsorptionModel().getValue<double>(SMA_LAMBDA);
     else if (_psim.getAdsorptionModel().getAdsorptionType() == SELF_ASSOCIATION)
         lambda = _psim.getAdsorptionModel().getValue<double>(SAI_LAMBDA);
+    else if (_psim.getAdsorptionModel().getAdsorptionType() == EXTERNAL_STERIC_MASS_ACTION_PH)
+        lambda = _psim.getAdsorptionModel().getValue<double>(EXTSMAPH_LAMBDA); 
 
     if (_psim.getAdsorptionModel().getAdsorptionType() == STERIC_MASS_ACTION ||
-            _psim.getAdsorptionModel().getAdsorptionType() == SELF_ASSOCIATION)
+            _psim.getAdsorptionModel().getAdsorptionType() == SELF_ASSOCIATION ||
+            _psim.getAdsorptionModel().getAdsorptionType() == EXTERNAL_STERIC_MASS_ACTION_PH)
         if (lambda != initQ.at(0))
         {
             initQ_wrt.at(0) = lambda;
