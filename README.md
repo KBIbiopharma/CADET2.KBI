@@ -1,5 +1,10 @@
 ![CADET Logo](doc/logo/CADET-GitHub.png "Chromatography Analysis and Design Toolkit")
 
+# UNOFFICIAL version of CADET
+For the official CADET repository, head to https://github.com/modsim/CADET . This version of CADET, based on CADET 2.3.2 
+was forked and modified by KBI Biopharma Inc. to support the Reveal-Chromatography desktop application for 
+chromatography modeling.
+
 # Chromatography Analysis and Design Toolkit
 
 The Chromatography Analysis and Design Toolkit (CADET) is developed at the Institute of Bio- and Geosciences 1 (IBG-1) of Forschungszentrum Jülich (FZJ) under supervision of Dr. Eric von Lieres. The core of the CADET software is a fast and accurate solver for the General Rate Model (GRM) of packed bed liquid chromatography. The CADET solver covers a wide range of GRM variants, combining different transport and binding models with state-of-the-art mathematical algorithms and scientific computing techniques. 
