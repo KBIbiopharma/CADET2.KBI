@@ -40,6 +40,7 @@ enum AdsorptionType {
     SELF_ASSOCIATION,
     EXTERNAL_LANGMUIR,
     EXTERNAL_STERIC_MASS_ACTION,
+    EXTERNAL_STERIC_MASS_ACTION_PH,
     EXTERNAL_MOBILE_PHASE_MODULATORS,
     LINEAR,
     MULTI_COMPONENT_BILANGMUIR,
@@ -144,6 +145,20 @@ enum ParameterName {
     EXTSMA_LAMBDA_T,
     EXTSMA_LAMBDA_TT,
     EXTSMA_LAMBDA_TTT,
+
+    EXTSMAPH_KA,
+    EXTSMAPH_KA_E,
+    EXTSMAPH_KA_EE,
+    EXTSMAPH_KD,
+    EXTSMAPH_KD_E,
+    EXTSMAPH_KD_EE,
+    EXTSMAPH_NU,
+    EXTSMAPH_NU_P,
+    EXTSMAPH_NU_PP,
+    EXTSMAPH_SIGMA,
+    EXTSMAPH_SIGMA_P,
+    EXTSMAPH_SIGMA_PP,
+    EXTSMAPH_LAMBDA,
 
     EXTMPM_KA,
     EXTMPM_KA_T,
@@ -329,6 +344,7 @@ inline const char* e2s(AdsorptionType adsType)
     case SELF_ASSOCIATION:             return "SELF_ASSOCIATION";
     case EXTERNAL_LANGMUIR:            return "EXTERNAL_LANGMUIR";
     case EXTERNAL_STERIC_MASS_ACTION:  return "EXTERNAL_STERIC_MASS_ACTION";
+    case EXTERNAL_STERIC_MASS_ACTION_PH:  return "EXTERNAL_STERIC_MASS_ACTION_PH";
     case EXTERNAL_MOBILE_PHASE_MODULATORS: return "EXTERNAL_MOBILE_PHASE_MODULATORS";
     case LINEAR:                       return "LINEAR";
     case MULTI_COMPONENT_BILANGMUIR:   return "MULTI_COMPONENT_BILANGMUIR";
@@ -436,6 +452,20 @@ inline const char* e2s(ParameterName param)
     case EXTSMA_LAMBDA_T:             return "EXTSMA_LAMBDA_T";
     case EXTSMA_LAMBDA_TT:            return "EXTSMA_LAMBDA_TT";
     case EXTSMA_LAMBDA_TTT:           return "EXTSMA_LAMBDA_TTT";
+
+    case EXTSMAPH_KA:                   return "EXTSMAPH_KA";
+    case EXTSMAPH_KA_E:                 return "EXTSMAPH_KA_E";
+    case EXTSMAPH_KA_EE:                return "EXTSMAPH_KA_EE";
+    case EXTSMAPH_KD:                   return "EXTSMAPH_KD";
+    case EXTSMAPH_KD_E:                 return "EXTSMAPH_KD_E";
+    case EXTSMAPH_KD_EE:                return "EXTSMAPH_KD_EE";
+    case EXTSMAPH_NU:                   return "EXTSMAPH_NU";
+    case EXTSMAPH_NU_P:                 return "EXTSMAPH_NU_P";
+    case EXTSMAPH_NU_PP:                return "EXTSMAPH_NU_PP";
+    case EXTSMAPH_SIGMA:                return "EXTSMAPH_SIGMA";
+    case EXTSMAPH_SIGMA_P:              return "EXTSMAPH_SIGMA_P";
+    case EXTSMAPH_SIGMA_PP:             return "EXTSMAPH_SIGMA_PP";
+    case EXTSMAPH_LAMBDA:               return "EXTSMAPH_LAMBDA";
 
     case EXTMPM_KA:                   return "EXTMPM_KA";
     case EXTMPM_KA_T:                 return "EXTMPM_KA_T";
