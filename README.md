@@ -1,7 +1,7 @@
 ![CADET Logo](doc/logo/CADET-GitHub.png "Chromatography Analysis and Design Toolkit")
 
 # UNOFFICIAL version of CADET
-For the official CADET repository, head to https://github.com/modsim/CADET . This version of CADET, based on CADET 2.1 
+For the official CADET repository, head to https://github.com/modsim/CADET . This version of CADET, based on CADET 2.3.2 
 was forked and modified by KBI Biopharma Inc. to support the Reveal-Chromatography desktop application for 
 chromatography modeling.
 
